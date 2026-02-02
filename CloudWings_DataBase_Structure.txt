@@ -1,0 +1,58 @@
+ 		-- Flight Ticket Booking System – Database Structure
+
+
+
+
+
+User Table :-   create table User(User_id int primary key,Name varchar(40),Email varchar(50),UserName varchar(40),Password 						varchar(250),PhoneNo varchar(15),BirthDate DATE,city varchar(40),District varchar(40),State varchar(40),Country 					varchar(40),pincode int);
+
+
+mysql> desc User;
++-----------+--------------+------+-----+---------+-------+
+| Field     | Type         | Null | Key | Default | Extra |
++-----------+--------------+------+-----+---------+-------+
+| User_id   | int          | NO   | PRI | NULL    |       |
+| Name      | varchar(40)  | YES  |     | NULL    |       |
+| Email     | varchar(50)  | YES  |     | NULL    |       |
+| UserName  | varchar(40)  | YES  |     | NULL    |       |
+| Password  | varchar(250) | YES  |     | NULL    |       |
+| PhoneNo   | varchar(15)  | YES  |     | NULL    |       |
+| BirthDate | date         | YES  |     | NULL    |       |
+| city      | varchar(40)  | YES  |     | NULL    |       |
+| District  | varchar(40)  | YES  |     | NULL    |       |
+| State     | varchar(40)  | YES  |     | NULL    |       |
+| Country   | varchar(40)  | YES  |     | NULL    |       |
+| pincode   | int          | YES  |     | NULL    |       |
+
+
+Flight table :- create table Flights(flight_id int primary key,airline varchar(30),source varchar(30),destination varchar(30),depature_time 			        DATETIME,arrival_time DATETIME,price decimal(10,2),no_of_seats int);
+
+mysql> desc flights;
++---------------+---------------+------+-----+---------+-------+
+| Field         | Type          | Null | Key | Default | Extra |
++---------------+---------------+------+-----+---------+-------+
+| flight_id     | int           | NO   | PRI | NULL    |       |
+| airline       | varchar(30)   | YES  |     | NULL    |       |
+| source        | varchar(30)   | YES  |     | NULL    |       |
+| destination   | varchar(30)   | YES  |     | NULL    |       |
+| depature_time | datetime      | YES  |     | NULL    |       |
+| arrival_time  | datetime      | YES  |     | NULL    |       |
+| price         | decimal(10,2) | YES  |     | NULL    |       |
+| no_of_seats   | int           | YES  |     | NULL    |       |
++---------------+---------------+------+-----+---------+-------+
+
+
+
+flight_booking Table :-    CREATE TABLE flight_booking ( booking_id INT PRIMARY KEY, user_id INT, flight_id INT, seat_no VARCHAR(30), booking_date DATE,			   status VARCHAR(30),FOREIGN KEY (user_id) REFERENCES user(user_id), FOREIGN KEY (flight_id) REFERENCES flights(flight_id));
+
+
++--------------+-------------+------+-----+---------+-------+
+| Field        | Type        | Null | Key | Default | Extra |
++--------------+-------------+------+-----+---------+-------+
+| booking_id   | int         | NO   | PRI | NULL    |       |
+| user_id      | int         | YES  | MUL | NULL    |       |
+| flight_id    | int         | YES  | MUL | NULL    |       |
+| seat_no      | varchar(30) | YES  |     | NULL    |       |
+| booking_date | date        | YES  |     | NULL    |       |
+| status       | varchar(30) | YES  |     | NULL    |       |
++--------------+-------------+------+-----+---------+-------+
