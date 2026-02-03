@@ -1,0 +1,32 @@
+package com.example.demo.entity;
+
+import java.time.LocalDate;
+
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+import lombok.Data;
+
+
+@Entity
+@Data
+@Table(name="passenger")
+public class PassengerEntity {
+
+	@Id
+	@Column(name="adhar_no")
+	private String adhar_no;
+	
+	@Column(name="passenger_name")
+	private String name;
+	
+	@Column(name="birthdate")
+	private LocalDate birthdate;
+	
+	@Column(name="address")
+	private String address;
+	
+	@Column(name="category")
+	private String category;
+}
