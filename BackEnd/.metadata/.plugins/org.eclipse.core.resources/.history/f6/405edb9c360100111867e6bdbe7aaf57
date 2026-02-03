@@ -1,0 +1,29 @@
+package com.example.demo.service;
+
+import java.util.Optional;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.example.demo.entity.AdminEntity;
+import com.example.demo.repository.AdminRepository;
+
+@Service
+public class AdminService {
+
+    @Autowired
+    private AdminRepository adminRepository;
+
+    public AdminEntity loginAdmin(String username, String password) {
+        Optional<AdminEntity> adminOpt = adminRepository.findByUserName(username);
+
+        if (adminOpt.isPresent() && adminOpt.get().getPassWord().equals(password)) {
+            return adminOpt.get();
+        }
+        return null; // simple login
+    }
+
+    public AdminEntity getAdminByPhone(String phoneNo) {
+        return adminRepository.findById(phoneNo).orElse(null);
+    }
+}

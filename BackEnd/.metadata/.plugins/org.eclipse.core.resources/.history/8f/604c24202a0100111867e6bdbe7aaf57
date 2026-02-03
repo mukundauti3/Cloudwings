@@ -1,0 +1,13 @@
+package com.example.demo.beans;
+
+import java.time.LocalDate;
+
+public class Pasanger {
+	
+	private String Adhar_no;
+	private String name;
+	private LocalDate birthdate;
+	private String address;
+	private String category;
+
+}

@@ -1,0 +1,15 @@
+package com.example.demo.beans;
+
+public class Flight {
+	
+	private int flight_id;
+	private String airline;
+	private String source;
+	private String destination;
+	private String depature_time;
+	private String arrival_time;
+	private double pricde;
+	private int no_of_seats;
+	
+
+}
